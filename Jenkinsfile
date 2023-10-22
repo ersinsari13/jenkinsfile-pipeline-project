@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('install docker') {
             steps {
-                echo "Clarusway_Way to Reinvent Yourself"
-                sh 'echo using shell within Jenkinsfile'
-                echo 'not using shell in the Jenkinsfile'
+                sudo dnf update
+                sudo dnf install docker -y
+                sudo systemctl start docker
+                sudo systemctl enable docker
+                sudo usermod -a G docker ec2-user
+                newgrp docker
             }
         }
     }
