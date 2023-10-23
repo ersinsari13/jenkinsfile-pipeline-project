@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('install docker') {
+        stage('build') {
             steps {
-               sh "sudo dnf update"
+                echo 'Clarusway_Way to Reinvent Yourself'
+                sh 'echo Integrating Jenkins Pipeline with GitHub Webhook using Jenkinsfile'
             }
         }
     }
